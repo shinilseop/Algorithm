@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class Ex06 {
+public class Ex06_01 {
     static int[][] sudoku;
     static int blank;
 

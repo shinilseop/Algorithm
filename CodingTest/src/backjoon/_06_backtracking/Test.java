@@ -14,5 +14,8 @@ public class Test {
 
         visited[0][0] = false;
         System.out.println(visited[0][0]+" "+visited2[0][0]);
+
+        int num = -7;
+        System.out.println(num/2);
     }
 }
