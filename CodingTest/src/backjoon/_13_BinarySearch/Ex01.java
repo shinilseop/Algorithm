@@ -7,6 +7,24 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Ex01 {
+    public static int binarySearch(int[] arr, int target) {
+        int lo = 0, hi = arr.length - 1;
+
+        while (lo <= hi) {
+            int mid = (lo + hi) / 2;
+
+            if (target < arr[mid]) {
+                hi = mid-1;
+            } else if (target > arr[mid]) {
+                lo = mid+1;
+            } else {
+                return mid;
+            }
+        }
+
+        return -1;
+    }
+
     public static int binarySearch(int[] arr, int target, int from, int to) {
 //        System.out.println(target+" == "+from+"~"+to);
         if (from == to) {
@@ -54,7 +72,8 @@ public class Ex01 {
 
         StringBuilder sb = new StringBuilder(len2*2);
         for (int i = 0; i < arr2.length; i++) {
-            if (binarySearch(arr1, arr2[i], 0, arr1.length - 1) != -1) {
+//            if (binarySearch(arr1, arr2[i], 0, arr1.length - 1) != -1) {
+            if (binarySearch(arr1, arr2[i]) != -1) {
                 sb.append(1).append('\n');
             } else {
                 sb.append(0).append('\n');
