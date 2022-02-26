@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Ex06 {
-    static int[][] input1, input2;
-    static int row1, col1, row2, col2;
+public class MatrixExponential {
+    static int[][] input1;
+    static int row1, col1;
 
     public static int[][] matrixMultiple(int[][] matrix1, int[][] matrix2) {
         if (matrix1[0].length != matrix2.length) {
@@ -40,22 +40,16 @@ public class Ex06 {
             }
         }
 
-        st = new StringTokenizer(br.readLine());
-        row2 = Integer.parseInt(st.nextToken());
-        col2 = Integer.parseInt(st.nextToken());
-        input2 = new int[row2][col2];
-        for (int i = 0; i < row2; i++) {
-            st = new StringTokenizer(br.readLine());
-            for (int j = 0; j < col2; j++) {
-                input2[i][j] = Integer.parseInt(st.nextToken());
-            }
-        }
+        int exp = Integer.parseInt(br.readLine());
 
-        int[][] multiple = matrixMultiple(input1, input2);
-        StringBuffer sb = new StringBuffer(multiple.length*(multiple[0].length*2+2));
-        for (int i = 0; i < multiple.length; i++) {
-            for (int j = 0; j < multiple[i].length; j++) {
-                sb.append(multiple[i][j]).append(' ');
+        int[][] result = input1;
+        for (int i = 1; i < exp; i++) {
+            result = matrixMultiple(result, input1);
+        }
+        StringBuffer sb = new StringBuffer(result.length*(result[0].length*2+2));
+        for (int i = 0; i < result.length; i++) {
+            for (int j = 0; j < result[i].length; j++) {
+                sb.append(result[i][j]).append(' ');
             }
             sb.append('\n');
         }
