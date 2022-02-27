@@ -24,7 +24,7 @@ public class Ex04 {
         }
 
         int div = n % 2 == 0 ? m / 2 : m / 2 + 1;
-        lo = lo-div<0?0:lo-div;
+        lo = lo - div < 0 ? 0 : lo - div;
         long ans = 0;
 //        System.out.println(lo+" "+hi);
         while (lo <= hi) {
