@@ -40,14 +40,22 @@ public class BinarySearch {
     }
 
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int size = Integer.parseInt(br.readLine());
-        int[] arr = new int[size];
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-        for (int i = 0; i < size; i++) {
-            arr[i] = Integer.parseInt(st.nextToken());
-        }
-        int key = Integer.parseInt(br.readLine());
+//        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//        int size = Integer.parseInt(br.readLine());
+//        int[] arr = new int[size];
+//        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+//        for (int i = 0; i < size; i++) {
+//            arr[i] = Integer.parseInt(st.nextToken());
+//        }
+//        int key = Integer.parseInt(br.readLine());
+//        int idx = lowerBound(arr, key);
+//        System.out.println("idx:" + idx + ", value:" + arr[idx]);
+//        idx = upperBound(arr, key);
+//        System.out.println("idx:" + idx + ", value:" + arr[idx]);
+
+//        int arr[] = {0, 1, 2, 3, 4, 4, 4, 6, 7};
+        int arr[] = {-98127, 10, 10, 20, 20, 20};
+        int key = 10;
         int idx = lowerBound(arr, key);
         System.out.println("idx:" + idx + ", value:" + arr[idx]);
         idx = upperBound(arr, key);

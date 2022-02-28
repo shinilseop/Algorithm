@@ -7,16 +7,19 @@ import java.io.InputStreamReader;
 public class Ex06 {
     static int n, k;
 
-    public static int binarySearch() {
-        int lo = 1, hi = n * n;
+    public static long binarySearch() {
+        long lo = 1, hi = k;
 
         while (lo < hi) {
-            int mid = (lo + hi) / 2;
+            long mid = (lo + hi) / 2;
 
             long count = 0;
             for (int i = 1; i <= n; i++) {
-                count += mid / i;
+//                System.out.println(i+":"+Math.min(mid / i, n));
+                count += Math.min(mid / i, n);
             }
+
+//            System.out.println(lo+" ~ "+hi+"=> mid:"+mid+", count:"+count);
 
             if (k <= count) {
                 hi = mid;
@@ -33,10 +36,7 @@ public class Ex06 {
         n = Integer.parseInt(br.readLine());
         k = Integer.parseInt(br.readLine());
 
-        if ((int) Math.sqrt(k) == Math.sqrt(k)) {
-
-        } else {
-
-        }
+        long ans = binarySearch();
+        System.out.println(ans);
     }
 }
