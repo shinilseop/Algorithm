@@ -3,6 +3,7 @@ package backjoon._16_ShortestPath;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.StringTokenizer;
@@ -11,8 +12,7 @@ public class Ex02 {
     static Node[] nodes;
     static int[] dist;
     static boolean[] visited;
-    static int size;
-    static StringBuffer answer;
+    static int N, E;
 
     public static class Node {
         int num;
@@ -32,8 +32,8 @@ public class Ex02 {
         }
     }
 
-    public static void dijkstra(int start) {
-        dist[start] = 0;
+    public static void dijkstra(int start, int startDist) {
+        dist[start] = startDist;
 
         while (true) {
             int minIdx = -1, min = Integer.MAX_VALUE;
@@ -63,30 +63,55 @@ public class Ex02 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-        size = Integer.parseInt(st.nextToken());
-        answer = new StringBuffer(size * 5);
-        nodes = new Node[size + 1];
-        dist = new int[size + 1];
-        visited = new boolean[size + 1];
-        for (int i = 0; i <= size; i++) {
+        N = Integer.parseInt(st.nextToken());
+        nodes = new Node[N + 1];
+        for (int i = 0; i <= N; i++) {
             nodes[i] = new Node(i);
-            dist[i] = Integer.MAX_VALUE;
         }
-        int edges = Integer.parseInt(st.nextToken());
-        int start = Integer.parseInt(br.readLine());
-        for (int i = 0; i < edges; i++) {
+        E = Integer.parseInt(st.nextToken());
+        for (int i = 0; i < E; i++) {
             st = new StringTokenizer(br.readLine(), " ");
             int from = Integer.parseInt(st.nextToken());
             int to = Integer.parseInt(st.nextToken());
             int weight = Integer.parseInt(st.nextToken());
 
             nodes[from].addEdge(to, weight);
+            nodes[to].addEdge(from, weight);
         }
 
-        dijkstra(start);
-        for (int i = 1; i <= size; i++) {
-            answer.append(dist[i] == Integer.MAX_VALUE ? "INF" : dist[i]).append('\n');
+        st = new StringTokenizer(br.readLine(), " ");
+        int[] stopOver = new int[3];
+        stopOver[0] = 1;
+        stopOver[1] = Integer.parseInt(st.nextToken());
+        stopOver[2] = Integer.parseInt(st.nextToken());
+
+
+        dist = new int[N + 1];
+        int startDist = 0, minDist = Integer.MAX_VALUE;
+        for (int i = 0; i < stopOver.length; i++) {
+            visited = new boolean[N + 1];
+            startDist = dist[stopOver[i]];
+            Arrays.fill(dist, Integer.MAX_VALUE);
+            dijkstra(stopOver[i], startDist);
         }
-        System.out.print(answer);
+        minDist = Math.min(minDist, dist[N]);
+
+        dist = new int[N + 1];
+        int tmp = stopOver[1];
+        stopOver[1] = stopOver[2];
+        stopOver[2] = tmp;
+        for (int i = 0; i < stopOver.length; i++) {
+            visited = new boolean[N + 1];
+            startDist = dist[stopOver[i]];
+            Arrays.fill(dist, Integer.MAX_VALUE);
+            dijkstra(stopOver[i], startDist);
+        }
+        minDist = Math.min(minDist, dist[N]);
+
+        if (minDist == Integer.MAX_VALUE) {
+            System.out.println(-1);
+        } else {
+            System.out.print(minDist);
+        }
     }
 }
