@@ -3,7 +3,7 @@ package backjoon._16_ShortestPath;
 import java.io.*;
 import java.util.*;
 
-public class Ex04 {
+public class Ex04_Dijkstra_fail {
     static int[] dist;
     static boolean[] visited;
     static int N, M, maxMinus;
@@ -29,7 +29,6 @@ public class Ex04 {
         dist[start] = 0;
         while (!pq.isEmpty()) {
             Node n = pq.poll();
-            visited[n.idx] = true;
 //            System.out.println("start "+n.idx);
 
             if (dist[n.idx] == Integer.MIN_VALUE) {
@@ -45,17 +44,19 @@ public class Ex04 {
                     if (dist[next.idx] > dist[n.idx] + next.weight) {
                         if(dist[n.idx] + next.weight < maxMinus){
                             dist[next.idx] = Integer.MIN_VALUE;
-                            pq.add(new Node(next.idx, dist[next.idx]));
                         } else {
-                            visited[next.idx] = false;
                             dist[next.idx] = dist[n.idx] + next.weight;
-                            pq.add(new Node(next.idx, dist[next.idx]));
                         }
+                        pq.add(new Node(next.idx, dist[next.idx]));
                     }
                 }
             }
 
         }
+    }
+
+    public static void velmanFord(int start) {
+
     }
 
     public static void main(String[] args) throws IOException {
@@ -105,7 +106,7 @@ public class Ex04 {
             System.out.println(-1);
         } else {
 //            System.out.println(Arrays.toString(dist));
-            System.out.println(sb.toString());
+            System.out.print(sb.toString().strip());
         }
     }
 }
