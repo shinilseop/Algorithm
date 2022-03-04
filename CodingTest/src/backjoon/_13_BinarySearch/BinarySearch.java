@@ -54,8 +54,10 @@ public class BinarySearch {
 //        System.out.println("idx:" + idx + ", value:" + arr[idx]);
 
 //        int arr[] = {0, 1, 2, 3, 4, 4, 4, 6, 7};
-        int arr[] = {-98127, 10, 10, 20, 20, 20};
-        int key = 10;
+//        int arr[] = {-98127, 10, 10, 20, 20, 20};
+//        int arr[] = {0, 1, 3, 5 ,6};
+        int arr[] = {0,0,0,0,1};
+        int key = 1;
         int idx = lowerBound(arr, key);
         System.out.println("idx:" + idx + ", value:" + arr[idx]);
         idx = upperBound(arr, key);
