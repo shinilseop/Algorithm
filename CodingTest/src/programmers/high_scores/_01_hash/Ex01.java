@@ -36,8 +36,6 @@ public class Ex01 {
         String[] participant = {"leo", "kiki", "eden"};
         String[] completion = {"eden", "kiki"};
 
-
-
         String[] participant2 = {"marina", "josipa", "nikola", "vinko", "filipa"};
         String[] completion2 = {"josipa", "filipa", "marina", "nikola"};
 

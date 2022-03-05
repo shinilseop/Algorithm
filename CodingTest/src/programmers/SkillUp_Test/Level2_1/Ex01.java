@@ -1,8 +1,7 @@
-package programmers.SkillUp_Test.Level2;
+package programmers.SkillUp_Test.Level2_1;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 
 public class Ex01 {
     public static void main(String[] args) {

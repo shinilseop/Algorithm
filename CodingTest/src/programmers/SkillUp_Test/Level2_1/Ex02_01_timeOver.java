@@ -1,11 +1,11 @@
-package programmers.SkillUp_Test.Level2;
+package programmers.SkillUp_Test.Level2_1;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 
-public class Ex02 {
+public class Ex02_01_timeOver {
     static HashMap<String, HashMap<String, HashMap<String, HashMap<String, ArrayList<Integer>>>>> infos;
     // lang, job, degree, food, score
 
