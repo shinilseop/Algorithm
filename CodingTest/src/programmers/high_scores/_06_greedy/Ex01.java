@@ -3,7 +3,6 @@ package programmers.high_scores._06_greedy;
 import java.util.*;
 
 public class Ex01 {
-<<<<<<< Updated upstream
     public static int solution(int n, int[] lost, int[] reserve) {
         int answer = n - lost.length;
 
@@ -55,7 +54,4 @@ public class Ex01 {
 
         System.out.println(solution(n, lost, reserve));
     }
-=======
-        
->>>>>>> Stashed changes
 }

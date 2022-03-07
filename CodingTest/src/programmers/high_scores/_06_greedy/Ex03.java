@@ -1,40 +1,27 @@
 package programmers.high_scores._06_greedy;
 
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Ex03 {
     public static String solution(String number, int k) {
-        int idx = 0, changed = k;
-        ArrayList<Character> list = new ArrayList<>();
-        for (char ch : number.toCharArray()) {
-            list.add(ch);
-        }
+        StringBuffer sb = new StringBuffer(number);
 
-        while (list.size() != number.length() - k) {
-
-
-
-            if (idx == list.size() - 1) {
+        int idx=0, change = 0;
+        while (change != k) {
+            if (idx == sb.length()-1) {
                 break;
-            } else if (list.get(idx) < list.get(idx + 1)) {
-                list.remove(idx);
-                changed--;
-                idx = idx == 0 ? 0 : idx - 1;
-                if (changed == 0) {
-                    break;
-                }
+            } else if (sb.charAt(idx) < sb.charAt(idx + 1)) {
+                sb.deleteCharAt(idx);
+                idx = idx==0?0:idx-1;
+                change++;
             } else {
                 idx++;
             }
         }
 
-        StringBuffer answer = new StringBuffer(list.size() - changed + 1);
-        for (int i = 0; i < list.size() - changed; i++) {
-            answer.append(list.get(i));
-        }
-
-        return answer.toString();
+        return sb.delete(sb.length()-(k-change), sb.length()).toString();
     }
 
     public static void main(String[] args) {
