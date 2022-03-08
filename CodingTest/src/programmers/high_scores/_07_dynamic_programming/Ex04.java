@@ -1,7 +1,7 @@
 package programmers.high_scores._07_dynamic_programming;
 
 public class Ex04 {
-    
+
     public int solution(int[] money) {
         int[][] dp = new int[money.length][2];
         dp[0][0] = money[0];
