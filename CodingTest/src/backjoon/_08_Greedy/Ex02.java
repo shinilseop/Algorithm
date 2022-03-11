@@ -1,4 +1,4 @@
-package backjoon._08_Gridy;
+package backjoon._08_Greedy;
 
 import java.io.BufferedReader;
 import java.io.IOException;
