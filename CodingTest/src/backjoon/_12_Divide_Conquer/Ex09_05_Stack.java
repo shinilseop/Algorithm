@@ -30,8 +30,10 @@ public class Ex09_05_Stack {
             Stack<Integer> stack = new Stack<>();
             for (int i = 0; i < size; i++) {
                 while (!stack.isEmpty() && hist[stack.peek()] >= hist[i]) {
+                    System.out.println(hist[i] + " IN " + hist[stack.peek()]);
                     long height = hist[stack.pop()];
                     long width = stack.isEmpty() ? i : i - 1 - stack.peek();
+                    System.out.println("POP h: "+height+" w: "+width);
                     sum = Math.max(sum, width * height);
                 }
 
@@ -41,6 +43,7 @@ public class Ex09_05_Stack {
             while (!stack.isEmpty()) {
                 long height = hist[stack.pop()];
                 long width = stack.isEmpty() ? size : size - 1 - stack.peek();
+                System.out.println("LAST POP h: "+height+" w: "+width);
                 sum = Math.max(sum, width * height);
             }
 
