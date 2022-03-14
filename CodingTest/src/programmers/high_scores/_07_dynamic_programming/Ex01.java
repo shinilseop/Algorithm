@@ -5,7 +5,6 @@ import java.util.Arrays;
 public class Ex01 {
     static int min = Integer.MAX_VALUE;
     static int N, number;
-    static int[] dp;
 
     public static void dfs(int num, int step) {
 //        System.out.println(num+" "+step);
@@ -43,6 +42,7 @@ public class Ex01 {
                     if (tmp / div == 0) {
                         continue;
                     }
+                    
                     dfs(num + (tmp / div), step + i + j);
                     dfs(num - (tmp / div), step + i + j);
                     dfs(num * (tmp / div), step + i + j);
@@ -55,8 +55,6 @@ public class Ex01 {
     public static int solution(int _N, int _number) {
         number = _number;
         N = _N;
-        dp = new int[N * number * N + 1];
-        Arrays.fill(dp, 1000000000);
 
         dfs(N, 1);
 
