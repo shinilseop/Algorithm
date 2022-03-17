@@ -1,8 +1,4 @@
-package programmers.SkillUp_Test.Level3;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
+package programmers.SkillUp_Test.Level3_1;
 
 public class Ex01 {
     static final int MOD = 1000000007;

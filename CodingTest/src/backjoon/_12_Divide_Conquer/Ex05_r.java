@@ -40,6 +40,7 @@ public class Ex05_r {
         long nFac = factorial(N) % MOD;
         long kFac = factorial(K) % MOD;
         long nkFac = factorial(N - K) % MOD;
+        System.out.println(nFac+" "+kFac+" "+nkFac);
         long result = (nFac * expo((kFac * nkFac) % MOD, MOD - 2)) % MOD;
         System.out.println(result);
     }
