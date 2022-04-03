@@ -67,6 +67,7 @@ public class Ex03 {
         dfs(a, 0);
 
         int answer = 0;
+        
         for (int i = 0; i < useCheck.length; i++) {
             if (useCheck[i].isUsed) {
                 answer++;
