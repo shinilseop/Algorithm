@@ -134,9 +134,19 @@ public class Ex02_2 {
     }
 
     public static void main(String[] args) {
-        String[] grid = {"??b", "abc", "cc?"};
         Ex02_2 main = new Ex02_2();
+
+        String[] grid = {"??b", "abc", "cc?"};
+        System.out.println("EX 01 START");
         System.out.println(main.solution(grid));
+
+        String[] grid2 = {"abcabcab","????????"};
+        System.out.println("\n\n\n\n\nEX 02 START");
+        System.out.println(main.solution(grid2));
+
+        String[] grid3 = {"aa?"};
+        System.out.println("\n\n\n\n\nEX 03 START");
+        System.out.println(main.solution(grid3));
     }
 }
 
