@@ -1,4 +1,4 @@
-package backjoon._07_DynamicProgramming;
+package backjoon._07_01_DynamicProgramming;
 
 import java.io.BufferedReader;
 import java.io.IOException;
