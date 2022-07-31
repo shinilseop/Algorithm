@@ -1,4 +1,4 @@
-package backjoon._05_sorting;
+package backjoon._05_01_sorting;
 
 import java.io.BufferedReader;
 import java.io.IOException;

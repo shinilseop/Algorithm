@@ -1,6 +1,4 @@
-package backjoon._05_sorting;
-
-import java.io.BufferedReader;
+package backjoon._05_01_sorting;
 
 public class Test2 {
     public static void main(String[] args) {
