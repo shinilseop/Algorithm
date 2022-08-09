@@ -6,4 +6,4 @@
 *.iml
 out
 gen
-src/sf_sh
+src/sf_sh/*

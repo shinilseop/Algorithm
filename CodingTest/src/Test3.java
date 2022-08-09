@@ -2,16 +2,25 @@ import java.util.Stack;
 
 public class Test3 {
     public static void main(String[] args) {
-        Stack<Integer> stack = new Stack<>();
+        int n = 5;
+        int r = 3;
 
-        stack.push(1);
-        stack.push(3);
-        stack.push(2);
-        System.out.println(stack.peek());
-        System.out.println(stack.pop());
-        System.out.println(stack.isEmpty());
-        System.out.println(stack.pop());
-        System.out.println(stack.pop());
-        System.out.println(stack.isEmpty());
+    }
+
+    // n!/(n-r)!
+    public static long p(int n, int r) {
+        long sum = 1;
+        for (int i = r + 1; i <= n; i++) {
+            sum*=i;
+        }
+        return sum;
+    }
+
+    public static long factorial(int n) {
+        if (n == 1) {
+            return 1;
+        }
+
+        return n * factorial(n - 1); // n*(n-1)!
     }
 }

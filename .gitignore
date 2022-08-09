@@ -1,3 +1,5 @@
-/CodingTest/
-
-src/sf_sh
+CodingTest/src/sf_sh
+CodingTest/.idea
+CodingTest/*.iml
+CodingTest/out
+CodingTest/gen
