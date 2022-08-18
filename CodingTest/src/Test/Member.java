@@ -1,2 +1,6 @@
-package Test;public class Member {
+package Test;
+
+public class Member {
+    String name;
+    int age;
 }
