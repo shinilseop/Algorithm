@@ -26,7 +26,6 @@ public class boj_1987 {
         }
         answer=0;
 
-        cnt = 1;
         visited[map[0][0] - 'A'] = true;
         dfs(0,0);
         System.out.println(answer);
