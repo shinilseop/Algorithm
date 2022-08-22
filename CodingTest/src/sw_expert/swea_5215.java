@@ -5,8 +5,31 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+
+
 public class swea_5215 {
     static boolean[] visited;
+
+    static int dx[] = {0, 1, 0, -1};
+    static int dy[] = {1, 0, -1, 0};
+    static int map[][];
+    static int answer;
+
+    public static void dirDFS(int y, int x) {
+        for (int i = 0; i < dx.length; i++) {
+            int nextY = y + dy[i];
+            int nextX = x + dx[i];
+
+            if (0 <= nextY && nextY < map.length) {
+                if (0 <= nextX && nextX < map[nextY].length) {
+                    if (map[nextY][nextX] == 1) {
+                        dirDFS(nextY, nextX);
+                        answer++;
+                    }
+                }
+            }
+        }
+    }
 
     public void dfs() {
         for (int i = 0; i < visited.length; i++) {
