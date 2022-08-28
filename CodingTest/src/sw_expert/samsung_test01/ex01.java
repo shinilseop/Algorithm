@@ -15,6 +15,7 @@ public class ex01 {
         if (depth == fishing.length) {
             minDist = Math.min(dist, minDist);
 //            System.out.println("@@@@@@@@@@@@min:" + minDist);
+            return;
         }
 
         for (int i = 0; i < fishing.length; i++) {
@@ -23,11 +24,11 @@ public class ex01 {
                 fishing[i].isFinish = true;
                 boolean[] temp = isFishing.clone();
 //                System.out.println("left setting " + i);
-                int leftDist = leftPos(i);
+                int leftDist = batch(i, true);
                 dfs(leftDist + dist, depth + 1);
                 isFishing = temp.clone();
 //                System.out.println("right setting " + i);
-                int rightDist = rightPos(i);
+                int rightDist = batch(i, false);
                 dfs(rightDist + dist, depth + 1);
                 isFishing = temp.clone();
                 fishing[i].isFinish = false;
@@ -35,8 +36,8 @@ public class ex01 {
         }
     }
 
-    public static int leftPos(int idx) {
-        int dist = 0;
+    public static int batch(int idx, boolean isLeft) {
+        int dist = 0; // distance
         int left = fishing[idx].pos;
         int right = fishing[idx].pos;
 //        System.out.println("INIT >> left :" + left + ", right :" + right);
@@ -67,6 +68,7 @@ public class ex01 {
             } else {
                 int leftDist = fishing[idx].pos - left;
                 int rightDist = right - fishing[idx].pos;
+
                 if (leftDist > rightDist) {
                     dist += right - fishing[idx].pos + 1;
                     isFishing[right++] = true;
@@ -74,15 +76,20 @@ public class ex01 {
                     dist += fishing[idx].pos - left + 1;
                     isFishing[left--] = true;
                 } else { // leftDist == rightDist
-                    dist += fishing[idx].pos - left + 1;
-                    isFishing[left--] = true;
+                    if (isLeft) {
+                        dist += fishing[idx].pos - left + 1;
+                        isFishing[left--] = true;
+                    } else {
+                        dist += right - fishing[idx].pos + 1;
+                        isFishing[right++] = true;
+                    }
                 }
             }
 //            System.out.println(Arrays.toString(isFishing) + ", " + dist);
         }
 
         return dist;
-    }
+}
 
     public static int rightPos(int idx) {
         int dist = 0;
@@ -140,7 +147,7 @@ public class ex01 {
             int N = Integer.parseInt(br.readLine());
 
             isFishing = new boolean[N];
-            fishing = new Fishing[3];
+            fishing = new Fishing[3]; // 낚시터의 위치, 몇명이 기다리는지, 이 낚시터가 다배치했는지
             minDist = Integer.MAX_VALUE;
             for (int i = 0; i < 3; i++) {
                 StringTokenizer st = new StringTokenizer(br.readLine());
