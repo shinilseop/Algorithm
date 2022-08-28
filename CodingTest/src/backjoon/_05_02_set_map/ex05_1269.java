@@ -15,14 +15,22 @@ public class ex05_1269 {
         int A = Integer.parseInt(st.nextToken());
         int B = Integer.parseInt(st.nextToken());
 
+        int cnt = 0;
         Set<Integer> set = new HashSet<>();
         st = new StringTokenizer(br.readLine(), " ");
         while (st.hasMoreTokens()) {
             int num = Integer.parseInt(st.nextToken());
 
+            //            if (set.contains(num)) {
+//                set.remove(num);
+//            } else {
+//                set.add(num);
+//            }
+
             if (set.contains(num)) {
-                set.remove(num);
+                cnt--;
             } else {
+                cnt++;
                 set.add(num);
             }
         }
@@ -31,13 +39,21 @@ public class ex05_1269 {
         while (st.hasMoreTokens()) {
             int num = Integer.parseInt(st.nextToken());
 
+//            if (set.contains(num)) {
+//                set.remove(num);
+//            } else {
+//                set.add(num);
+//            }
+
             if (set.contains(num)) {
-                set.remove(num);
+                cnt--;
             } else {
+                cnt++;
                 set.add(num);
             }
         }
 
-        System.out.println(set.size());
+//        System.out.println(set.size());
+        System.out.println(cnt);
     }
 }
