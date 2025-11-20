@@ -1,10 +1,10 @@
-package new_20251119.time_complexity;
+package new_20251119.bruteforce;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class boj_24262 {
+public class boj_02798 {
   public static int N, M;
   public static int[] arr;
   public static int answer;
