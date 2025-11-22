@@ -1,4 +1,4 @@
-package backjoon2.step._6_advanced1;
+package step._6_advanced1;
 
 import java.io.BufferedReader;
 import java.io.IOException;

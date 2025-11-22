@@ -1,5 +1,3 @@
-import java.util.Stack;
-
 public class Test3 {
     public static void main(String[] args) {
         int n = 5;
